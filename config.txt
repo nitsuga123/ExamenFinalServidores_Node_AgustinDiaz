@@ -1,0 +1,9 @@
+var config = {
+  user: 'postgres',
+  database: 'Entrega2MultiplayerGame',
+  password: 'pepito',
+  host: 'localhost',
+  port: 5433,
+  max: 10,
+  idleTimeoutMillis: 30000,
+};

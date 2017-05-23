@@ -1,0 +1,128 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# garajeCarros
+
+All the data contained on a multiplayer car game
+
+## [/users/{id}]
+
+### Retrieves a player's data with its experience, level and money[GET]
+
++ Response 200 (application/json)
+
+        {
+            "name": "agustin",
+            "exp": 500,
+            "level": 1,
+            "Money": 500000,
+            "ActiveCar": "safg"
+        }
+        
+### Updates player exp, level, money [POST]
+
++ Request (application/json)
+
+        {
+            "exp": 1000,
+            "level": 12,
+            "Money": 25000
+        }
++ Response 200
+
+## [/UsersCars/{id}]
+
+### Retrieves a player's  Active car [GET]
+
++ Response 200 (application/json)
+
+        {
+            "ActiveCar": "bugati"
+        }
+        
+### Changes user active car [POST]
+
++ Request (application/json)
+
+        {
+           "ActiveCar": "Camaro"
+        }
++ Response 200
+
+## [/UpgradeCar/{id}]
+
+### Retrieves a player's car stats [GET]
+
++ Response 200 (application/json)
+
+        {
+            "topSpeed" : 350,
+            "acceleration" : 350,
+            "handling" : 350
+        }
+### Uses Car Points to Upgrade Car [POST]
+
++ Request (application/json)
+
+        {
+            "topSpeed" : 400,
+            "acceleration" : 350,
+            "handling" : 350
+        }                  
++ Response 200
+
+## [/UnlockCar/{id}]
+
+### Uses Money to buy a new Car also updates Money [POST]
+
++ Request (application/json)
+        
+            "Money": 100,
+            "Car": 
+                          {
+                                "name":"chevy",
+                                "topSpeed" : 350,
+                                "acceleration" : 350,
+                                "handling" : 350
+                          }
+                          
+        
++ Response 200 
+
+## /info/{id}
+
+### gets all the info of a player [Get]
+
+
++ Response 200 (application/json)
+
+            {
+                "name": "agustin",
+                "exp": 500,
+                "level": 1,
+                "Money": 500000
+                "ActiveCar": "carX",
+                "Cars": [
+                                {
+                                "name":"carX",
+                                "topSpeed" : 350,
+                                "acceleration" : 350,
+                                "handling" : 350
+                                
+                                },
+                                {
+                                "name":"carY",
+                                "topSpeed" : 200,
+                                "acceleration" : 350,
+                                "handling" : 100
+                                
+                                },
+                                {
+                                "name":"carZ",
+                                "topSpeed" : 350,
+                                "acceleration" : 200,
+                                "handling" : 500
+                                
+                                }
+                      ]             
+            }
